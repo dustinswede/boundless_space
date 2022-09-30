@@ -1,0 +1,19 @@
+{% extends "core/part/root.html" %}
+
+{% block scripts %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include "core/part/header.html" %}
+    <div class='wrapper index'>
+        <div><a href="{% url 'game' %}">Resume</a></div>
+        <div><a href="{% url 'options' %}">Options</a></div>
+    </div>
+{% endblock %}
+
+
+
+
+

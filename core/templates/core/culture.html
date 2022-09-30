@@ -1,0 +1,33 @@
+{% extends "core/part/root.html" %}
+
+{% block scripts %}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+    {% include "core/part/header.html" %}
+    {% include "core/part/nav.html" %}
+
+    <div>
+        <h2>Civilian</h2>
+        <div>Strategy:
+            <select>
+                <option>Independent Civilian Sector</option>
+                <option>Restricted Civilian Sector</option>
+            </select>
+        </div>
+        <div>Taxes:
+            <select>
+                <option>Sustainable</option>
+                <option>Subsidised</option>
+                <option>Large Taxes</option>
+                <option>Extreme Taxes</option>
+            </select>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+

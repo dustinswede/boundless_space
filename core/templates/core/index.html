@@ -1,0 +1,40 @@
+{% extends "core/part/root.html" %}
+
+{% block scripts %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/map.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% load map_tags %}
+    {% include "core/part/header.html" %}
+    {% include "core/part/nav.html" %}
+    {% for system in systems %}
+        Name: {{ system.name }}
+        <div class="hex-grid">
+            {% system_rows system as rows %}
+            {% for row_num in rows %}
+                <div class="hex-row">
+                    {% system_cols system row_num as cols %}
+                    {% for col_num in cols %}
+                        <div class="hex">
+                            {% system_body system col_num row_num as body %}
+                            <div class="hex-background">
+                                {{ col_num }}, {{ row_num }}
+                                {% if body %}
+                                    <br>
+                                    {{ body.name }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
