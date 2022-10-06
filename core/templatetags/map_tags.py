@@ -1,5 +1,6 @@
 from django import template
-from core.models import Body
+from core.models.body import Body
+from core.models.Galaxy import Fleet
 
 register = template.Library()
 
@@ -17,6 +18,13 @@ def system_cols(system, row):
 
 
 @register.simple_tag
-def system_body(system, position_x, position_y):
+def system_hex_body(system, position_x, position_y):
     bodies = Body.objects.filter(system=system, x=position_x, y=position_y)
     return bodies.first()
+
+
+@register.simple_tag
+def system_hex_fleets(system, position_x, position_y):
+    bodies = Fleet.objects.filter(system=system, x=position_x, y=position_y)
+    return bodies
+

@@ -1,0 +1,26 @@
+{% extends "core/part/root.html" %}
+
+{% block scripts %}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+    {% include "core/part/header.html" %}
+    {% include "core/part/nav.html" %}
+
+    <div>
+        <div>
+            <h2>Projects:</h2>
+            <div>
+            {% for project in projects %}
+                {{ project.description }}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+

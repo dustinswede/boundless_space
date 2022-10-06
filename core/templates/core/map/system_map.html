@@ -1,0 +1,15 @@
+{% extends "core/part/map.html" %}
+
+{% block map %}
+    {% load map_tags %}
+    {% include "core/part/system_map_display.html" with system=system %}
+{% endblock %}
+
+{% block details %}
+    System: {{ system.name }}
+{% endblock %}
+
+
+
+
+

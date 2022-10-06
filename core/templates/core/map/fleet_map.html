@@ -1,0 +1,18 @@
+{% extends "core/part/map.html" %}
+
+{% block map %}
+    {% load map_tags %}
+    {% include "core/part/system_map_display.html" with system=system %}
+{% endblock %}
+
+{% block details %}
+    System: {{ system.name }}<br>
+    Fleet: {{ fleet.name }}<br>
+    Faction: {{ fleet.faction.name }}<br>
+    Project: None
+{% endblock %}
+
+
+
+
+

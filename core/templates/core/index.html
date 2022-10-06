@@ -1,14 +1,8 @@
-{% extends "core/part/root.html" %}
+{% extends "core/part/map.html" %}
 
-{% block scripts %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'core/css/map.css' %}">
-{% endblock %}
-
-{% block content %}
+{% block map %}
     {% load map_tags %}
-    {% include "core/part/header.html" %}
-    {% include "core/part/nav.html" %}
+    <section>
     {% for system in systems %}
         Name: {{ system.name }}
         <div class="hex-grid">
@@ -23,7 +17,7 @@
                                 {{ col_num }}, {{ row_num }}
                                 {% if body %}
                                     <br>
-                                    {{ body.name }}
+                                    <a href="{% url 'system_map' system.id %}">{{ body.name }}</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -32,6 +26,7 @@
             {% endfor %}
         </div>
     {% endfor %}
+    </section>
 {% endblock %}
 
 

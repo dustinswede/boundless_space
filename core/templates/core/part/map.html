@@ -1,0 +1,21 @@
+{% extends "core/part/root.html" %}
+
+{% block scripts %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/map.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% load map_tags %}
+    {% include "core/part/header.html" %}
+    <div class="center">
+        <div>{% include "core/part/nav.html" %}</div>
+        <div>{% block map %}{% endblock %}</div>
+        <div>{% block details %}{% endblock %}</div>
+    </div>
+{% endblock %}
+
+
+
+
+

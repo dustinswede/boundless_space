@@ -1,0 +1,26 @@
+{% extends "core/part/map.html" %}
+
+{% block map %}
+    {% load map_tags %}
+    {% include "core/part/system_map_display.html" with system=system %}
+{% endblock %}
+
+{% block details %}
+    System: {{ system.name }}<br>
+    Body: {{ body.name }}<br>
+    Type: {{ body.type_text }}<br>
+    {% for colony in body.colonies.all %}
+        <div style="border: 2px solid black; margin: 5px; padding: 5px">
+            <div>{{ colony.faction.name }}</div>
+            <div>Population: {{ colony.population }}</div>
+            <div> {% for building in colony.buildings.all %}
+                <div>{{ building.type|capfirst }}</div>
+            {% endfor %}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+

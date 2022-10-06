@@ -1,0 +1,30 @@
+{% load map_tags %}
+<section>
+<div class="hex-grid">
+    {% system_rows system as rows %}
+    {% for row_num in rows %}
+        <div class="hex-row">
+            {% system_cols system row_num as cols %}
+            {% for col_num in cols %}
+                <div class="hex">
+                    <div class="hex-background">
+                        <div>{{ col_num }}, {{ row_num }}</div>
+                        {% system_hex_body system col_num row_num as body %}
+                        {% system_hex_fleets system col_num row_num as fleets %}
+                        {% if body %}
+                            <div>
+                                <a href="{% url 'body_details' system.id body.id %}">{{ body.name }}</a>
+                            </div>
+                        {% endif %}
+                        {% for fleet in fleets %}
+                            <div>
+                                <a href="{% url 'fleet_details' system.id fleet.id %}">{{ fleet.name }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+</section>

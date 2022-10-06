@@ -1,0 +1,15 @@
+{% extends "core/part/map.html" %}
+
+{% block map %}
+    {% load map_tags %}
+    <section>
+    {% for system in systems %}
+        <a href="{% url 'system_map' system.id %}">{{ system.name }}</a>
+    {% endfor %}
+    </section>
+{% endblock %}
+
+
+
+
+
